@@ -1,3 +1,13 @@
+/*
+questions:
+github pushing wonky
+refresher pass by reference
+writing in the text file using the for loop
+why does vscode keep staging my changes but not up to date on my github account
+adding stuff into txt file from main
+build compiler and .json file for bebugging
+*/
+
 #include<iostream>
 #include<fstream>
 
@@ -25,12 +35,42 @@ int main()
     //declare an array
     double numbers[SIZE] = {0};
 
-    //open file
+    //file var
     ifstream inFile;
     ofstream outFile;
 
+    //loop to open file]
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "Please enter number # " << i + 1 << ": ";
+        cin >> numbers[i];
+    }    
     
+    outFile.open("inclass.txt");
 
+    cout << "Writing to the file";
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        outFile << numbers[i];
+    }
+    cout << "all done"; 
+    inFile.close();
+    inFile.open("inclass.txt");
+
+    if (inFile.fail())
+    {
+        cout <<"Error opening the file";
+        exit(1);
+    }
+//
+    double num1 = 0.0;
+    while (inFile.eof())
+    {
+        inFile >> num1;
+        cout << num1 << endl;
+    }
+    inFile.close();
     cout << "Please enter the score: ";
 
     return 0;
