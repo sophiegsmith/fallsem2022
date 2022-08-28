@@ -1,51 +1,49 @@
 #include<iostream>
-#include<string>
 
 using namespace std;
 
 //function prototype
-int gettemps(int, int, int);
-int calcavg(int);
-void displayavg();
+void gettemps(int&, int&, int&);
+int calcavg(int, int, int);
+void displayavg(int);
 
 //main function
 int main()
 {
-    int temp1, temp2, temp3 = 0.0;
-    //use an array to get temps
-    //temp1 = gettemps(double temp1);
-    //temp2 = gettemps(double temp2);
-    //temp2 = gettemps(double temp3);
-
-    int avg = 0.0;
-    int sum=0;
-    //avg = calcavg(int avg);
-
-    displayavg();
+    //variables
+    int temp1, temp2, temp3 = 0;
+    int count = 1;
+    int avg = 0;
+    cout << "Please enter 3 different temperatures: ";
+    //call functions
+    gettemps(temp1, temp2, temp3);
+    avg = calcavg(temp1, temp2, temp3);
+    displayavg(avg);
     return 0;
 }
 
-//functions
-int gettemps(int temp1, int temp2, int temp3)
+void gettemps(int& temp1, int& temp2, int& temp3)
 {
-    if (int i = 0, i < 3, i++)
-    {
-        cout << "Enter 3 temperatures: ";
-    }
-    return temp1, temp2, temp3;
+    int count = 1;
+	cout << "Plese enter temperature 1: " << temp1 << endl;
+	cin >> temp1;
+
+	count++;
+	cout << "Plese enter temperature 2: " << temp2 << endl;
+	cin >> temp2;
+
+	count++;
+	cout << "Plese enter temperature 3: " << temp3 << endl;
+	cin >> temp3;
 }
 
-int calcavg(int avg, int sum, int temp1, int temp2, int temp3)
+int calcavg(int temp1, int temp2, int temp3, int avg)
 {
-    sum = temp1 + temp2 + temp3;
-    avg = sum/3;
+    avg = (temp1 + temp2 + temp3)/3;
     return avg;
 }
 
 void displayavg(int avg)
 {
-    cout << "Temp 1:   \n";
-    cout << "Temp 2:   \n";
-    cout << "Temp 3:   \n";
-    cout << "The average of all 3 temps is:  " << avg <<endl;
+    cout << "The average temperature is: " << avg << endl;
 }
