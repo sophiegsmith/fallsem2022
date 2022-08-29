@@ -2,7 +2,6 @@
 
 #include<iostream>
 #include<string>
-
 using namespace std;
 
 //function prototype
@@ -13,22 +12,26 @@ void displayrecord(string&, string&, double&);
 int main()
 {
     //variables
-    string id[5];
-    string name[20];
+    string id;
+    string name;
     double gpa = 0.0;
-    return 0;
+    
     //call functions
-    getrecord(string, string, double);
-    displayrecord(string, string, double);
+    getrecord(id , name, gpa);
+    displayrecord(id, name, gpa);
     return 0;
 }
 
 //functions
 void getrecord(string& id, string& name, double& gpa)
 {
-    cout << "Enter your id: " << id << endl;
-    cout << "Enter your name (first and last, only 20 characters: " << name << endl;
-    cout << "Enter your gpa: " << gpa << endl;
+    cout << "Enter your id: ";
+    cin >> id;
+    cin.ignore();
+    cout << "Enter your name: " ;
+    std::getline(std::cin, name);
+    cout << "Enter your gpa: ";
+    cin >> gpa;
 }
 
 void displayrecord(string& id , string& name, double& gpa)
@@ -38,3 +41,14 @@ void displayrecord(string& id , string& name, double& gpa)
     cout << "NAME: " << name << endl;
     cout << "GPA: " << gpa << endl;
 }
+
+//output
+/*
+Enter your id: 12345
+Enter your name: sally lee
+Enter your gpa: 3.1
+Enter a student record:  
+ID: 12345
+NAME: sally lee
+GPA: 3.1
+*/
