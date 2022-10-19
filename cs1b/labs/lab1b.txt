@@ -1,0 +1,54 @@
+#include<iostream>
+
+using namespace std;
+
+//function protoypes
+int getBalance(int);
+int getDeposit(int);
+int getNewbalance(int, int);
+void displayBalance(int, int);
+
+int main()
+{
+    int getbalance = 0;
+    int getdeposit = 0;
+    int newbalance = 0;
+
+    getbalance = getBalance(getbalance);
+    getdeposit = getDeposit(getdeposit);
+    newbalance = getNewbalance(getbalance, getdeposit);
+    displayBalance(newbalance, getdeposit);
+
+    return 0;
+}
+int getBalance(int getbalance)
+{
+    cout << "Enter your bank balance: ";
+    cin >> getbalance;
+    return getbalance;
+}
+
+int getDeposit(int getdeposit)
+{
+    cout << "Enter a deposit: ";
+    cin >> getdeposit;
+    return getdeposit;
+}
+
+int getNewbalance(int getbalance, int getdeposit)
+{
+    return (getbalance + getdeposit);
+}
+
+void displayBalance(int newbalance, int getdeposit)
+{
+    cout << "With a deposit of " << getdeposit << ". ";
+    cout << "Your new balance is: " << newbalance;
+}
+
+
+/* output
+Enter your bank balance: 1000
+Enter a deposit: 500
+With a deposit of 500. Your new balance is: 1500
+*/
