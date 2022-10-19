@@ -1,1 +1,52 @@
-//open file and read back into the main
+//examples for notes 11
+
+const int SIZE = 5;
+    char data[SIZE] = {'A', 'B', 'C', 'D', 'E'};
+    fstream file;
+
+
+    
+    //have created dat file, now we are going to open that file
+    file.open("test.bin", ios::out | ios::binary);
+    cout << "writing into a file.\n";
+
+    //write into binary file, using data
+    file.write(data, sizeof(data)); //open it for writing we need the 
+    file.close(); //is a dat extension, and used binary format to write a dat
+
+    //use read and display on console
+    file.read("test.bin", sizeof(data));
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << data[i] << "\t";
+    }
+    file.close();
+
+    //soph.bin --> change it to that
+
+    return 0;
+
+    const int SIZE = 5;
+    int array[SIZE] = {9,10,11,12,13};
+
+    fstream file;
+    file.open("test.bin", ios::out | ios::in | ios::binary);
+
+    cout << "writig to the file.\n";
+    file.write(reinterpret_cast<char*>(array), sizeof(array));
+    //file.close();
+    file.open("test.bin", ios::out | ios::in | ios::binary);
+
+    file.read(reinterpret_cast<char*>(array), sizeof(array));
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << array[i] << endl;
+    }
+    file.close();
+
+    int number = 99;
+
+    file.open("test.bin", ios::out | ios::in | ios::binary | ios::app);
+
+    //file.write((char*)(number), sizeof(number)); //create error because 

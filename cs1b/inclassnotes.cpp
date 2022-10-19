@@ -8,6 +8,13 @@ adding stuff into txt file from main
 build compiler and .json file for bebugging
 
 write to the file using a loop, then opening the file, then close it (need review)
+
+read into array and display it
+pass stuff into array, display in original order
+then display in reverse
+
+going to display an output of triangles made from 
+
 */
 
 #include<iostream>
@@ -67,10 +74,22 @@ int main()
     }
 //
     double num1 = 0.0;
-    while (inFile.eof())
+   // while (inFile.eof())
+    //{
+
+        //inFile >> num1;
+        //cout << num1 << endl;
+   // }
+    for (int i = 0; i < SIZE; i++)
     {
-        inFile >> num1;
-        cout << num1 << endl;
+        inFile >> numbers[i];
+        cout << numbers[i] << endl;
+    }
+    cout << "here are values from the file in reverse";
+
+    for (int i= SIZE - 1; i >= 0; i++)
+    {
+        cout << numbers[i];
     }
     inFile.close();
     cout << "Please enter the score: ";
