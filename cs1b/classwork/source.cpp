@@ -1,40 +1,40 @@
 #include "Payroll.h"
 
+//constant for number of employees
+const int NUM_EMPLOYEES = 7; 
+
 int main()
 {
     //define an instance of the Payroll class
-    Payroll payroll;
+    Payroll employees[NUM_EMPLOYEES];
     //local variable for the hours
     double prhours;
     //local variable for the pay rate
     double prrate;
-    //local varaible for the total pay
-    double totalpay;
+    //loop counter
+    int count;
 
     //get the rate and hours from the user
-    cout << "Enter the payrate and hours for 7 employees.\n";
-    for (int i = 0; i < 7; i++)
+    cout << "Enter the hours worked and pay rate " << "for " << NUM_EMPLOYEES << " employees: \n";
+    for (count = 0; count < NUM_EMPLOYEES; count++)
     {
-        cout << "Employee # " << i+1 << "pay rate: ";
-        cin >> prrate;
-        cout << "Employee # "<<i+1 << " hours worked: ";
-        cin >> prhours;
+        //get the employee's pay rate
+        cout << "employee #" << (count+1) << "pay rate: ";
+        cin >>prrate;
+        employees[count].setPayRate(prrate);
+
+        //get the employee's hours worked
+        cout << "Employee #" << (count+1) << " hours worked: ";
+        cin>>prhours;
+        employees[count].setHours(prhours);
     }
 
-    //store the rate and hours of the employees into the payroll object
-    payroll.setPayRate(prrate);
-    payroll.setHours(prhours);
-
-    //get the total pay for the 7 employees
+    //display the total pay for each of employee
     cout << "Total pay: \n";
-    totalpay = prrate * prhours;
-    for (int i = 0; i < 7; i++)
+    for(count = 0; count < NUM_EMPLOYEES; count++)
     {
-        cout << "Employee # " << i +1 << totalpay;
+        cout << "\t Employee # " << (count+1) << ": ";
+        cout << employees[count].getTotalPay() << endl;
     }
-    payroll.getTotalPay(totalpay);
-
-    //display the Employee's data
-
     return 0;
 }

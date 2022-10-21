@@ -11,18 +11,34 @@ private:
     double hours;
     double payRate;
 public:
-    Payroll();
-    Payroll(double hours, double payRate);
-    ~Payroll(); 
+    //constructor
+    Payroll()
+    {
+        hours = 0;
+        payRate = 0;
+    }
+    
     //setting the values called mutators
-    void setHours(double hours);
-    void setPayRate(double payRate);
+    void setHours(double);
 
-    //get the values accessor
-    double getHours(double)const;
-    double getPayRate(double)const; 
-    double getTotalPay(double)const;
+    void setPayRate(double r)
+    {
+        payRate = r;
+    }
 
-    //void display
-    void displayPayRoll()const;
+    //accessors
+    double getHours()const
+    {
+        return hours;
+    }
+
+    double getPayRate() const
+    {
+        return payRate;
+    }
+
+    double getTotalPay()const
+    {
+        return hours * payRate;
+    }
 };
