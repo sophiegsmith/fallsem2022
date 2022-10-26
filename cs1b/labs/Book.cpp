@@ -5,37 +5,31 @@
 //we are going to define it
 Book::Book(){
     //here to initialize variable--> every object you create will inherit member functions and member varaibles
-    isbn = 0;
+    wholeSalesCost = 0.0;
     title = " ";
 }
 
 //overloaded destructor
-Book::Book(int isbn, string title) //every function has its own this operator
+Book::Book(double wholeSalesCost, string title) //every function has its own this operator
 {
-    this -> isbn = isbn; //each object will have its own this operator //look at this-> later
+    this -> wholeSalesCost = wholeSalesCost; //each object will have its own this operator //look at this-> later
     this -> title = title; //name it the same for this
 }
 
-Book::~Book(){
-    cout << "see ya later alligator. \n";
-}
+Book::~Book(){}
+    //cout << "see ya later alligator. \n";}
 
 //defintions of our functions
 //in main, you are setting these functions
-void Book::setIsbn(int isbn)
+void Book::setwholeSalesCost(double wholeSalesCost)
 {
-    this->isbn = isbn; //dont need this if its something else isbn = i
-}
-
-void Book::setTitle(string s)
-{
-    title = s;
+    this->wholeSalesCost = wholeSalesCost; //dont need this if its something else isbn = i
 }
 
 //in main, you are getting
-int Book::getIsbn()const
+double Book::getwholeSalesCost()const
 {
-    return isbn;
+    return wholeSalesCost;
 }
 
 string Book::getTitle()const
@@ -43,10 +37,15 @@ string Book::getTitle()const
     return title;
 }
 
-//lastly void
-void Book::displayBook()const //in line function meaning one line statement
+
+double Book::calcRetailCost()
 {
-    cout << "ISBN: " << isbn << endl 
+    return (wholeSalesCost * 1.5); 
+}
+//lastly void
+void Book::displayBook() //in line function meaning one line statement
+{
+    cout << "Retail Cost: " << calcRetailCost() << endl 
          << "Title: " << title << endl;
 }
 
